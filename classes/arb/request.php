@@ -10,6 +10,7 @@ abstract class Arb_Request {
 
 	protected $_data;
 	protected $_view_path;
+	protected $_request_type;
 
 	protected $_xml;
 
@@ -17,6 +18,9 @@ abstract class Arb_Request {
 	{
 		// Start with the config values
 		$this->_data = Kohana::config('arb')->as_array();
+
+		$class = get_class($this);
+		$this->_request_type = substr($class, 12);
 	}
 
 	public function test_mode($new_mode)
@@ -74,7 +78,9 @@ abstract class Arb_Request {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		$response = curl_exec($ch);
 
-		return new ARB_Response($response);
+		// Return a response object of matching type
+		$response_class = 'ARB_Response_'.$this->_request_type;
+		return new $response_class($response);
 	}
 
 	public function compile()
