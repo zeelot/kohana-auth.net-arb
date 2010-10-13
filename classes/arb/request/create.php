@@ -33,6 +33,7 @@ class ARB_Request_Create extends ARB_Request {
 			// field must be submitted with a value of "9999."
 			// If a trial period is specified, this number should include the Trial Occurrences.
 			->rule('total_occurrences', 'not_empty', array())
+			->rule('total_occurrences', 'max_length', array(4))
 			// @TODO: implement trial occurrences
 			// --
 			// The amount to be billed to the customer for each payment in the subscription.
@@ -49,6 +50,7 @@ class ARB_Request_Create extends ARB_Request {
 			->rule('card_number', 'max_length', array(16))
 			// YYYY-MM
 			->rule('card_expiration_date', 'not_empty', array())
+			->rule('card_expiration_date', 'exact_length', array(7))
 			// The three- or four-digit card code on the back of most credit
 			// cards, on the front for American Express.
 			// This element should only be included when the merchant has set the card code
