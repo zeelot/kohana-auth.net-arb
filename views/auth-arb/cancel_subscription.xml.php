@@ -13,6 +13,8 @@ echo "<?xml version='1.0' encoding='utf-8'?>"; ?>
 		<name><?php echo $api_login_id; ?></name>
 		<transactionKey><?php echo $transaction_key; ?></transactionKey>
 	</merchantAuthentication>
+	<?php if (isset($ref_id)): ?>
 	<refId><?php echo $ref_id; ?></refId>
+	<?php endif; ?>
 	<subscriptionId><?php echo $subscription_id; ?></subscriptionId>
 </ARBCancelSubscriptionRequest>
