@@ -16,6 +16,11 @@ abstract class ARB_Response {
 		$this->_data = new SimpleXMLElement($this->_xml);
 	}
 
+	public function data()
+	{
+		return $this->_data;
+	}
+
 	public function code()
 	{
 		return $this->_data->messages->message->code;
