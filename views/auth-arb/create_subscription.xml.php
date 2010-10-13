@@ -5,16 +5,22 @@
  * - api_login_id
  * - transaction_key
  * - ref_id
- * - name
- * - length
- * - unit
+ * - subscription_name
+ * - interval_length
+ * - interval_unit
  * - start_date
  * - total_occurences
  * - amount
  * - card_number
- * - expiration_date
- * - first_name
- * - last_name
+ * - card_expiration_date
+ * - card_code
+ * - invoice_number
+ * - invoice_description
+ * - user_id
+ * - user_email
+ * - user_phone
+ * - billing_first_name
+ * - billing_last_name
  */
 echo "<?xml version='1.0' encoding='utf-8'?>"; ?>
 <ARBCreateSubscriptionRequest xmlns='AnetApi/xml/v1/schema/AnetApiSchema.xsd'>
