@@ -30,7 +30,7 @@ abstract class Arb_Request {
 		return $this;
 	}
 
-	public function set($key, $value)
+	public function set($key, $value = NULL)
 	{
 		if (is_array($key))
 		{
