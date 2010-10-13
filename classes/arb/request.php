@@ -95,8 +95,13 @@ abstract class Arb_Request {
 	function validation_object()
 	{
 		return Validate::factory($this->_data)
+			// Optional Field
+			->rule('ref_id', 'max_length', array(20))
+			// Credentials are always required
 			->rule('api_login_id', 'not_empty', array())
-			->rule('transaction_key', 'not_empty', array());
+			->rule('api_login_id', 'max_length', array(25))
+			->rule('transaction_key', 'not_empty', array())
+			->rule('transaction_key', 'exact_length', array(16));
 	}
 
 	public function validate()
